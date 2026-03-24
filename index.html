@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Public API Playground | Explorer</title>
+    <meta name="description" content="A premium public API explorer featuring random dog images, jokes, user profiles, and JSON data.">
+    <!-- Google Fonts: Inter & Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Ionicons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-blob-container" aria-hidden="true">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">
+                <ion-icon name="flash-outline" class="logo-icon"></ion-icon>
+                <h1 class="logo-text">API<span>Playground</span></h1>
+            </div>
+            <nav class="nav">
+                <a href="#dog-finder" class="nav-link">Dog Finder</a>
+                <a href="#joke-generator" class="nav-link">Joke Gen</a>
+                <a href="#user-profile" class="nav-link">Random User</a>
+                <a href="#json-explorer" class="nav-link">JSON Data</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main container">
+        <section class="hero">
+            <h2 class="hero-title">Discover and Test Public APIs</h2>
+            <p class="hero-subtitle">Experiment with real-world data endpoints through an elegant, interactive interface.</p>
+        </section>
+
+        <div class="grid-layout">
+            <!-- Dog Finder Card -->
+            <section id="dog-finder" class="api-card" data-api="dog">
+                <div class="api-card-header">
+                    <div class="api-icon-wrapper dog-icon">
+                        <ion-icon name="paw-outline"></ion-icon>
+                    </div>
+                    <h3 class="api-title">Dog Finder</h3>
+                </div>
+                <div class="api-content" id="dog-content">
+                    <div class="placeholder-content">
+                        <ion-icon name="image-outline" class="placeholder-icon"></ion-icon>
+                        <p>Click the button to fetch a random dog image.</p>
+                    </div>
+                </div>
+                <div class="api-actions">
+                    <button id="get-dog-btn" class="btn btn-primary">
+                        <ion-icon name="sync-outline"></ion-icon>
+                        Get Dog
+                    </button>
+                    <button id="copy-dog-url-btn" class="btn btn-secondary" disabled>
+                        <ion-icon name="copy-outline"></ion-icon>
+                        Copy URL
+                    </button>
+                </div>
+            </section>
+
+            <!-- Joke Generator Card -->
+            <section id="joke-generator" class="api-card" data-api="joke">
+                <div class="api-card-header">
+                    <div class="api-icon-wrapper joke-icon">
+                        <ion-icon name="happy-outline"></ion-icon>
+                    </div>
+                    <h3 class="api-title">Joke Generator</h3>
+                </div>
+                <div class="api-content" id="joke-content">
+                    <div class="placeholder-content">
+                        <ion-icon name="chatbubble-ellipses-outline" class="placeholder-icon"></ion-icon>
+                        <p>Prepare for a laugh! Fetch a random joke.</p>
+                    </div>
+                </div>
+                <div class="api-actions">
+                    <button id="get-joke-btn" class="btn btn-primary">
+                        <ion-icon name="rocket-outline"></ion-icon>
+                        Get Joke
+                    </button>
+                    <button id="next-joke-btn" class="btn btn-secondary" disabled>
+                        <ion-icon name="play-forward-outline"></ion-icon>
+                        Next Joke
+                    </button>
+                </div>
+            </section>
+
+            <!-- Random User Profile Card -->
+            <section id="user-profile" class="api-card" data-api="user">
+                <div class="api-card-header">
+                    <div class="api-icon-wrapper user-icon">
+                        <ion-icon name="person-circle-outline"></ion-icon>
+                    </div>
+                    <h3 class="api-title">Random User</h3>
+                </div>
+                <div class="api-content" id="user-content">
+                    <div class="placeholder-content">
+                        <ion-icon name="people-outline" class="placeholder-icon"></ion-icon>
+                        <p>Generate a random user profile from across the globe.</p>
+                    </div>
+                </div>
+                <div class="api-actions">
+                    <button id="get-user-btn" class="btn btn-primary">
+                        <ion-icon name="person-add-outline"></ion-icon>
+                        Get User
+                    </button>
+                </div>
+            </section>
+
+            <!-- JSON Explorer Card -->
+            <section id="json-explorer" class="api-card" data-api="json">
+                <div class="api-card-header">
+                    <div class="api-icon-wrapper json-icon">
+                        <ion-icon name="code-slash-outline"></ion-icon>
+                    </div>
+                    <h3 class="api-title">JSON Explorer</h3>
+                </div>
+                <div class="api-content" id="json-content">
+                    <div class="placeholder-content">
+                        <ion-icon name="document-text-outline" class="placeholder-icon"></ion-icon>
+                        <p>Explore dummy JSON data from various endpoints.</p>
+                    </div>
+                </div>
+                <div class="api-actions">
+                    <select id="json-endpoint" class="select-input">
+                        <option value="posts">Posts</option>
+                        <option value="comments">Comments</option>
+                        <option value="albums">Albums</option>
+                        <option value="photos">Photos</option>
+                    </select>
+                    <button id="get-json-btn" class="btn btn-primary">
+                        <ion-icon name="search-outline"></ion-icon>
+                        Fetch
+                    </button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Public API Playground. Designed with ❤️ using Antigravity AI.</p>
+        </div>
+    </footer>
+
+    <div id="toast" class="toast hidden">
+        <p id="toast-message"></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
